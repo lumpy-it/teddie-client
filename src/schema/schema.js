@@ -9,14 +9,38 @@ type Doctrine {
    slug: String!
    category: String!
    tags: [String]
-   #public: Boolean!
+   public: Boolean!
    description: String
-
+   roles: [Role]
 }
+type Role {
+  name: String!
+  sortingKey: Int!
+  ships: [ShipEntry]
+}
+type ShipEntry {
+  ship: Ship!
+  sortingKey: Int!
+  public: Boolean!
+  count: String
+  comment: String
+}
+type Ship {
+  id: String!
+  name: String!
+  shipTypeID: Int!
+  shipTypeName: String!
+}
+
 # This type specifies the entry points into our API. In this case
 # there is only one - "channels" - which returns a list of channels.
 type Query {
    doctrines: [Doctrine]    # "[]" means this is a list of channels
+   doctrine(id: ID): Doctrine
+}
+
+type Mutation {
+  addDoctrine(name: String!, slug: String!, category: String! ): Doctrine
 }
 `;
 

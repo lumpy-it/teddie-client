@@ -11,9 +11,7 @@
     "react": "^15.5.4",
     "react-apollo": "^1.2.0",
     "react-bootstrap": "^0.31.0",
-    "react-dom": "^15.5.4",
-    "uniforms": "^1.18.0",
-    "uniforms-bootstrap3": "^1.18.0"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "react-scripts": "1.0.3"
