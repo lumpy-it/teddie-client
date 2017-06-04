@@ -10,10 +10,9 @@ import {
 } from 'react-apollo';
 
 import DoctrineList from './components/DoctrineList';
-import DoctrineAdd from './components/DoctrineAdd';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://localhost:3000/graphql'
 });
 
 const client = new ApolloClient({
@@ -39,7 +38,6 @@ class App extends Component {
                 <p><Button bsStyle="primary">Learn more</Button></p>
             </Jumbotron>
             <DoctrineList/>
-            <DoctrineAdd/>
           </Grid>
         </div>
       </ApolloProvider>

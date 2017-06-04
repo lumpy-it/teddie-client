@@ -5,8 +5,6 @@ import {
   graphql
 } from 'react-apollo';
 
-import '../schema/schema.js';
-
 const doctrineListQuery = gql`
   query DoctrineListQuery {
     doctrines {
@@ -16,6 +14,7 @@ const doctrineListQuery = gql`
     }
   }
 `;
+
 
 const DoctrineList = ({data: {loading, error, doctrines}}) => {
   if (loading) {
