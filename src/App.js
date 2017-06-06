@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import 'teddie-bootstrap';
-import { Grid, Navbar, Jumbotron } from 'react-bootstrap';
+import { Grid, Navbar, Nav, Jumbotron } from 'react-bootstrap';
 
 import {
   ApolloClient,
@@ -10,6 +10,7 @@ import {
 } from 'react-apollo';
 
 import DoctrineList from './components/DoctrineList';
+import NavbarProfile from './components/NavbarProfile';
 
 const networkInterface = createNetworkInterface({
   uri: 'http://localhost:3000/graphql',
@@ -34,6 +35,11 @@ class App extends Component {
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>
+              <Navbar.Collapse>
+                <Nav pullRight>
+                  <NavbarProfile />
+                </Nav>
+              </Navbar.Collapse>
           </Navbar>
           <Grid style={{paddingTop: '60px'}}>
             <Jumbotron>
