@@ -1,9 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-import App from './App';
+import {
+  ApolloClient,
+  ApolloProvider,
+  createNetworkInterface
+} from 'react-apollo';
+
+import App from './App.js';
+
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const networkInterface = createNetworkInterface({
+  uri: 'http://localhost:3000/graphql',
+  opts: {
+    credentials: 'same-origin'
+  }
+});
+
+const client = new ApolloClient({
+  networkInterface
+});
+
+render((
+  <ApolloProvider client={client}>
+    <App/>
+  </ApolloProvider>)
+, document.getElementById('root'));
+
 registerServiceWorker();
