@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import 'teddie-bootstrap';
-import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
+import { Grid, Navbar, Jumbotron } from 'react-bootstrap';
 
 import {
   ApolloClient,
@@ -12,7 +12,10 @@ import {
 import DoctrineList from './components/DoctrineList';
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:3000/graphql'
+  uri: 'http://localhost:3000/graphql',
+  opts: {
+    credentials: 'same-origin'
+  }
 });
 
 const client = new ApolloClient({
@@ -35,7 +38,7 @@ class App extends Component {
           <Grid style={{paddingTop: '60px'}}>
             <Jumbotron>
                 <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <p><Button bsStyle="primary">Learn more</Button></p>
+                <p><a href="/login" className="btn btn-primary">Login</a></p>
             </Jumbotron>
             <DoctrineList/>
           </Grid>
